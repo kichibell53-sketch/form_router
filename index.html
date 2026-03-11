@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>課題ページへ移動しています...</p>
+
+  <script>
+    const formUrls = [
+      "https://forms.gle/LnFDZ3VnLriEF9Ek6",
+      "https://forms.gle/aDntfiNCQU8beJz78",
+      "https://forms.gle/eqqXBfrHLsMpwCJbA",
+      "https://forms.gle/DvHis65wXuykay7R7",
+      "https://forms.gle/XGsC78wfk19qHsMH8",
+      "https://forms.gle/Q5q1iz3mQouQnZ6Q8"
+    ];
+
+    const storageKey = "recruit_exam_assigned_form_v1";
+
+    let assignedForm = localStorage.getItem(storageKey);
+
+    if (!assignedForm) {
+      const randomIndex = Math.floor(Math.random() * formUrls.length);
+      assignedForm = formUrls[randomIndex];
+      localStorage.setItem(storageKey, assignedForm);
+    }
+
+    window.location.replace(assignedForm);
+  </script>
+</body>
+</html>
